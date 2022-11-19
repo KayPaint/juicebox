@@ -3,15 +3,19 @@ const morgan = require('morgan');
 const server = express();
 const apiRouter = require('./api');
 
+// Connect client to DB
+const { client } = require('./db');
+client.connect();
+
+// Assign Port
 const PORT = 4845;
 server.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
 
+// Middleware
 server.use(morgan('dev'));
 server.use(express.json());
-
-server.use('/api', apiRouter);
 
 server.use((req, res, next) => {
     console.log("<----Body Logger START---->");
@@ -20,3 +24,6 @@ server.use((req, res, next) => {
 
     next();
 });
+
+// Routes
+server.use('/api', apiRouter);
