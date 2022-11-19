@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const server = express();
+require('dotenv').config();
 const apiRouter = require('./api');
 
 // Connect client to DB
