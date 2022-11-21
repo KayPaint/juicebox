@@ -9,7 +9,7 @@ const { client } = require('./db');
 client.connect();
 
 // Assign Port
-const PORT = 4845;
+const PORT = 3000;
 server.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
