@@ -1,4 +1,4 @@
-function requireUser(req, rex, next) {
+function requireUser(req, res, next) {
     if (!req.user) {
         next({
             name: 'MissingUserError',
